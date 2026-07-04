@@ -1,0 +1,7 @@
+# root
+[workspace]
+resolver = "2"
+members = [
+    "minecraft-server",
+    "minecraft-protocol",
+]
