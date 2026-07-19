@@ -45,10 +45,10 @@
 
 **데모**: 멀티플레이 목록에 서버가 뜨고 MOTD + 핑(ms)이 찍힘. Join 누르면 멈추는 건 정상.
 
-- [ ] `TcpListener` 블로킹 단일 커넥션 뼈대
-- [ ] 상태 머신 `enum State { Handshake, Status }` + `match`
-- [ ] Handshake 읽기 → Status Request → Status Response(JSON) → Ping/Pong 에코
-- [ ] MOTD·플레이어 수 JSON은 **서버 콘텐츠** → `serde_json` (server 크레이트 의존성)
+- [X] `TcpListener` 블로킹 단일 커넥션 뼈대
+- [X] 상태 머신 `enum State { Handshake, Status }` + `match`
+- [X] Handshake 읽기 → Status Request → Status Response(JSON) → Ping/Pong 에코
+- [X] MOTD·플레이어 수 JSON은 **서버 콘텐츠** → `serde_json` (server 크레이트 의존성)
 
 **배우는 Rust**: `TcpStream` 소유권과 `&mut` 빌림, `match`로 상태 전이(빠진 케이스를 컴파일러가 잡아주는 맛), serde 파생 매크로.
 

@@ -1,3 +1,4 @@
+use core::fmt;
 use std::io::{self, Read, Write};
 
 #[derive(Debug)]
@@ -11,6 +12,17 @@ impl From<io::Error> for VarIntError {
         VarIntError::Io(e)
     }
 }
+
+impl fmt::Display for VarIntError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self {
+            VarIntError::Io(e) => write!(f, "IO error: {e}"),
+            VarIntError::TooLong => write!(f, "VarInt too long (5바이트 초과)"),
+        }
+    }
+}
+
+impl std::error::Error for VarIntError {}
 
 pub fn write_varint<W: Write>(writer: &mut W, value: i32) -> Result<(), VarIntError> {
     let mut val = value as u32;
