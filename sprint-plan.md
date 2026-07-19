@@ -33,9 +33,9 @@
 - [X] `main.rs` / `lib.rs`의 `cargo new` 기본 스텁 제거
 - [X] **VarInt** read/write (`minecraft-protocol/src/varint.rs`)
   - 7비트씩 continuation bit, `i32 as u32` 캐스트로 음수 산술 시프트 함정 회피
-- [ ] **String** (길이 prefix VarInt + UTF-8), **u16** (포트, big-endian), **i64** (핑 payload)
-- [ ] 전부 `impl Read` / `impl Write`에 제네릭하게 (소켓 몰라도 되게)
-- [ ] `Cursor<Vec<u8>>` 라운드트립 테스트 — 경계값: `0, 127, 128, 300, i32::MAX, -1, i32::MIN`
+- [X] **String** (길이 prefix VarInt + UTF-8), **u16** (포트, big-endian), **i64** (핑 payload)
+- [X] 전부 `impl Read` / `impl Write`에 제네릭하게 (소켓 몰라도 되게)
+- [X] `Cursor<Vec<u8>>` 라운드트립 테스트 — 경계값: `0, 127, 128, 300, i32::MAX, -1, i32::MIN`
 
 **배우는 Rust**: 모듈 시스템(`pub mod varint`), 에러 enum + `From<io::Error>`로 `?` 자동 변환, 제네릭 trait bound(`<W: Write>`). Go의 `io.Writer`와 대응되지만 정적 monomorphization이라는 dispatch 차이.
 
